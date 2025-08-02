@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Admin Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    input::placeholder {
+      color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-800 via-purple-900 to-black text-white">
+
+  <div class="w-full max-w-md p-8 bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl ring-1 ring-white/20">
+    <div class="text-center mb-6">
+      <div class="text-5xl mb-2">🔐</div>
+      <h2 class="text-3xl font-bold text-blue-300">Admin Login</h2>
+      <p class="text-white/70 text-sm mt-2">Only Arshbir can access this panel</p>
+    </div>
+
+    <form method="POST" action="/login" class="space-y-5">
+      <div>
+        <label for="name" class="block text-sm text-white/80 mb-1">Username</label>
+        <input name="name" type="text" required
+               placeholder="Enter your name"
+               class="w-full rounded-xl p-3 bg-white text-black placeholder-black shadow-inner focus:ring-4 focus:ring-blue-400 transition">
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm text-white/80 mb-1">Password</label>
+        <input name="password" type="password" required
+               placeholder="Enter your password"
+               class="w-full rounded-xl p-3 bg-white text-black placeholder-black shadow-inner focus:ring-4 focus:ring-purple-500 transition">
+      </div>
+
+      <div>
+        <button type="submit"
+                class="w-full bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-white font-semibold px-4 py-2 rounded-full shadow-lg hover:opacity-90 transition">
+          🚀 Login
+        </button>
+      </div>
+    </form>
+
+    <div class="mt-6 text-center text-sm text-white/50">
+      Secure access for authorized user only.
+    </div>
+  </div>
+
+</body>
+</html>

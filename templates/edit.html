@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    input::placeholder {
+      color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-gray-900 via-purple-900 to-indigo-900 min-h-screen text-white">
+
+  <div class="max-w-5xl mx-auto py-10 px-6">
+    <h2 class="text-4xl font-extrabold text-center mb-10 text-white tracking-wide">Edit Portfolio</h2>
+
+    <!-- Personal Info Form -->
+    <form method="POST" action="/update_details" class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl mb-12 ring-1 ring-white/20">
+      <h3 class="text-2xl font-semibold mb-6 border-b border-white/30 pb-2">Personal Information</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <input name="name" class="rounded-xl p-3 text-black bg-white focus:ring-4 focus:ring-blue-400" placeholder="Name" value="{{ details.name }}">
+        <input name="course" class="rounded-xl p-3 text-black bg-white focus:ring-4 focus:ring-blue-400" placeholder="Course" value="{{ details.course }}">
+        <input name="college" class="rounded-xl p-3 text-black bg-white focus:ring-4 focus:ring-blue-400" placeholder="College" value="{{ details.college }}">
+        <input name="department" class="rounded-xl p-3 text-black bg-white focus:ring-4 focus:ring-blue-400" placeholder="Department" value="{{ details.department }}">
+        <input name="year" class="rounded-xl p-3 text-black bg-white focus:ring-4 focus:ring-blue-400" placeholder="Year" value="{{ details.year }}">
+        <input name="techstack" class="rounded-xl p-3 text-black bg-white focus:ring-4 focus:ring-blue-400" placeholder="Tech Stack" value="{{ details.techstack }}">
+        <input name="social" class="rounded-xl p-3 text-black bg-white focus:ring-4 focus:ring-blue-400" placeholder="Social Link" value="{{ details.social }}">
+        <input name="contact" class="rounded-xl p-3 text-black bg-white focus:ring-4 focus:ring-blue-400" placeholder="Contact Info" value="{{ details.contact }}">
+      </div>
+      <div class="text-right mt-6">
+        <button type="submit" class="bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 hover:opacity-90 px-6 py-2 rounded-full text-black font-semibold shadow-lg transition-all duration-300">
+          💾 Save Info
+        </button>
+      </div>
+    </form>
+
+    <!-- Add Project Form -->
+    <form method="POST" action="/add_project" class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl mb-12 ring-1 ring-white/20">
+      <h3 class="text-2xl font-semibold mb-6 border-b border-white/30 pb-2">Add New Project</h3>
+      <div class="space-y-4">
+        <input name="title" class="w-full rounded-xl p-3 text-black bg-white focus:ring-4 focus:ring-purple-400" placeholder="Project Title" required>
+        <input name="link" class="w-full rounded-xl p-3 text-black bg-white focus:ring-4 focus:ring-purple-400" placeholder="Project Link" required>
+      </div>
+      <div class="text-right mt-6">
+        <button type="submit" class="bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-500 hover:scale-105 transition-transform px-6 py-2 rounded-full text-white font-bold shadow-md">
+          ➕ Add Project
+        </button>
+      </div>
+    </form>
+
+    <!-- Existing Projects -->
+    <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl ring-1 ring-white/20">
+      <h3 class="text-2xl font-semibold mb-6 border-b border-white/30 pb-2">Existing Projects</h3>
+      <ul class="space-y-3">
+        {% for project in projects %}
+        <li class="flex justify-between items-center bg-white/20 px-4 py-3 rounded-xl shadow-sm">
+          <span>{{ project.title }}</span>
+          <a href="/delete_project/{{ project._id }}" class="text-red-400 hover:text-red-200 font-semibold">🗑 Delete</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Logout -->
+    <div class="mt-8 text-center">
+      <a href="/logout" class="text-sm text-white/70 hover:text-red-300 transition">🔓 Logout</a>
+    </div>
+  </div>
+
+</body>
+</html>
