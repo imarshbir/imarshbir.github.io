@@ -1,79 +1,1143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Arshbir's Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arshbir Singh | Developer & Photographer</title>
+    <style>
+        /* Premium Global Styles */
+        :root {
+            --primary-color: #6C63FF;
+            --primary-dark: #524BC7;
+            --secondary-color: #3F3D56;
+            --accent-color: #FF6584;
+            --accent-dark: #E55370;
+            --light-color: #f8f9fa;
+            --dark-color: #1a1a2e;
+            --text-color: #2d3748;
+            --text-light: #718096;
+            --gold: #D4AF37;
+            --platinum: #E5E4E2;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-color: rgba(108, 99, 255, 0.15);
+            --gradient-primary: linear-gradient(135deg, #6C63FF, #3F3D56);
+            --gradient-accent: linear-gradient(135deg, #FF6584, #FF9A9E);
+            --gradient-gold: linear-gradient(135deg, #D4AF37, #F7EF8A);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Premium Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(108, 99, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 101, 132, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* Premium Header */
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #3F3D56 50%, #6C63FF 100%);
+            color: white;
+            padding: 100px 0 150px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        /* Animated Background Elements */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 101, 132, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(108, 99, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 15s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 0.8; }
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite linear;
+        }
+        
+        .particle:nth-child(1) { top: 10%; left: 10%; width: 30px; height: 30px; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 20%; left: 80%; width: 20px; height: 20px; animation-delay: -5s; }
+        .particle:nth-child(3) { top: 60%; left: 15%; width: 40px; height: 40px; animation-delay: -10s; }
+        .particle:nth-child(4) { top: 70%; left: 70%; width: 25px; height: 25px; animation-delay: -15s; }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.3; }
+            100% { transform: translateY(0) rotate(360deg); opacity: 0.7; }
+        }
+        
+        .profile-container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            padding: 8px;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 0 60px rgba(108, 99, 255, 0.4);
+            animation: subtleGlow 3s infinite alternate;
+        }
+        
+        @keyframes subtleGlow {
+            0% { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 60px rgba(108, 99, 255, 0.4); }
+            100% { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 80px rgba(108, 99, 255, 0.6); }
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: white;
+            padding: 10px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 35px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-8px) scale(1.1);
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-links a:hover::before {
+            opacity: 1;
+        }
+        
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 2;
+            margin-top: -70px;
+            padding-bottom: 80px;
+        }
+        
+        /* Premium Glass Card */
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 24px;
+            box-shadow: 
+                0 20px 60px var(--shadow-color),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            padding: 50px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                        box-shadow 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-gold);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px) scale(1.005);
+            box-shadow: 
+                0 30px 80px rgba(108, 99, 255, 0.25),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+        
+        h2 {
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 20px;
+            font-weight: 700;
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 6px;
+            background: var(--gradient-gold);
+            border-radius: 3px;
+        }
+        
+        /* Section Intro Animation */
+        .card h2 {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .card:nth-child(1) h2 { animation-delay: 0.1s; }
+        .card:nth-child(2) h2 { animation-delay: 0.2s; }
+        .card:nth-child(3) h2 { animation-delay: 0.3s; }
+        .card:nth-child(4) h2 { animation-delay: 0.4s; }
+        .card:nth-child(5) h2 { animation-delay: 0.5s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .interest-item {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .interest-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-accent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .interest-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 101, 132, 0.3);
+        }
+        
+        .interest-item:hover::before {
+            opacity: 1;
+        }
+        
+        /* Premium Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                        box-shadow 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: white;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            z-index: 2;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(108, 99, 255, 0.2);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .project-info {
+            padding: 30px;
+        }
+        
+        .project-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            font-size: 1.3rem;
+        }
+        
+        .project-desc {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        /* Premium Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .skill-category {
+            margin-bottom: 30px;
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-left: 15px;
+        }
+        
+        .skill-category h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-name {
+            width: 140px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .skill-bar {
+            flex-grow: 1;
+            height: 12px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: width 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width: 0;
+        }
+        
+        .skill-level::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        /* Animate skill bars on scroll */
+        .skill-animated .skill-level {
+            animation: fillBar 1.5s ease-out forwards;
+        }
+        
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: attr(data-width); }
+        }
+        
+        /* Premium Contact Section */
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-accent);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.15);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+        }
+        
+        .contact-card:hover .contact-icon {
+            background: var(--gradient-primary);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+        
+        /* Luxury Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            background: var(--dark-color);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, transparent 50%);
+        }
+        
+        footer p {
+            opacity: 0.8;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .card {
+                padding: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 30px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 80px 0 120px;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            }
+            
+            main {
+                margin-top: -50px;
+            }
+        }
+        
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-gold);
+            z-index: 1000;
+            transition: width 0.2s ease;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Elegant Cursor Effect */
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease-out;
+            mix-blend-mode: difference;
+        }
+        
+        /* Section Indicator */
+        .section-indicator {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+        
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .indicator-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.3);
+        }
+        
+        .indicator-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid var(--primary-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .indicator-dot:hover::after {
+            opacity: 0.5;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-black text-white min-h-screen flex flex-col">
-
-  <!-- Header -->
-  <header class="w-full py-6 px-6 flex justify-center items-center bg-black bg-opacity-40 backdrop-blur-lg shadow-md">
-  <h1 class="text-3xl font-bold tracking-wide text-center">💻 Full Stack Web Developer 💻</h1>
-  </header>
-
-  <!-- Main Content -->
-  <main class="max-w-6xl mx-auto mt-10 px-6 space-y-10 flex-grow">
-
-    <!-- About Me Section -->
-    <section class="bg-white/10 backdrop-blur-md p-8 rounded-3xl shadow-2xl ring-1 ring-white/20">
-      <h2 class="text-3xl font-bold mb-6 text-center text-blue-300">👤 About Me</h2>
-      {% if details %}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg font-medium text-white">
-          <p><span class="text-purple-400">Name:</span> {{ details.name }}</p>
-          <p><span class="text-purple-400">Course:</span> {{ details.course }}</p>
-          <p><span class="text-purple-400">College:</span> {{ details.college }}</p>
-          <p><span class="text-purple-400">Department:</span> {{ details.department }}</p>
-          <p><span class="text-purple-400">Year:</span> {{ details.year }}</p>
-          <p><span class="text-purple-400">Tech Stack:</span> {{ details.techstack }}</p>
-          <p><span class="text-purple-400">Social:</span> <a class="text-blue-400 underline" href="{{ details.social }}" target="_blank">{{ details.social }}</a></p>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Section Indicator -->
+    <div class="section-indicator">
+        <div class="indicator-dot active" data-section="about"></div>
+        <div class="indicator-dot" data-section="projects"></div>
+        <div class="indicator-dot" data-section="skills"></div>
+        <div class="indicator-dot" data-section="collaboration"></div>
+        <div class="indicator-dot" data-section="contact"></div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top">↑</div>
+    
+    <header>
+        <div class="container profile-container">
+            <div class="profile-image-container">
+                <img class="profile-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjAgMjF2LTJhNCA0IDAgMCAwLTQtNEg4YTQgNCAwIDAgMC00IDR2MiI+PC9wYXRoPjxjaXJjbGUgY3g9IjEyIiBjeT0iNyIgcj0iNCI+PC9jaXJjbGU+PC9zdmc+" alt="Arshbir Singh">
+            </div>
+            <h1>Arshbir Singh</h1>
+            <p class="tagline">Python Developer | Photographer | IoT Enthusiast</p>
+            <div class="location">
+                <span>📍</span>
+                <span>Chandigarh, India</span>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/imarshbir" target="_blank" title="GitHub">⎋</a>
+                <a href="https://linkedin.com/in/imarshbir" target="_blank" title="LinkedIn">Ⓛ</a>
+                <a href="mailto:singharshbir76@gmail.com" title="Email">✉</a>
+            </div>
         </div>
-      {% else %}
-        <p class="text-center text-gray-200">No details available yet.</p>
-      {% endif %}
-    </section>
-
-    <!-- Projects Section -->
-    <section class="bg-white/10 backdrop-blur-md p-8 rounded-3xl shadow-2xl ring-1 ring-white/20">
-      <h2 class="text-3xl font-bold mb-6 text-center text-pink-300">🚀 Projects</h2>
-      {% if projects %}
-        <ul class="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
-          {% for project in projects %}
-          <li class="bg-black/30 p-6 rounded-xl shadow hover:scale-105 transition-transform duration-300">
-            <h3 class="text-xl font-semibold text-white mb-2">{{ project.title }}</h3>
-            <a href="{{ project.link }}" target="_blank" class="text-blue-300 hover:underline">🔗 Visit Project</a>
-          </li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <p class="text-center text-gray-300">No projects added yet.</p>
-      {% endif %}
-    </section>
-
-    <!-- Contact Section -->
-    {% if details.contact %}
-    <section class="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg text-center ring-1 ring-white/20">
-      <h2 class="text-2xl font-bold mb-2 text-green-300">📞 Contact</h2>
-      <p class="text-lg font-medium">{{ details.contact }}</p>
-    </section>
-    {% endif %}
-
-  </main>
-
-  <!-- Admin Login Button at Bottom Right -->
-  <div class="w-full px-6 mb-4 flex justify-end">
-    <a href="/login" class="bg-gradient-to-r from-blue-400 to-purple-600 hover:opacity-90 text-white font-semibold px-5 py-2 rounded-full transition duration-300 shadow-lg">Admin Login</a>
-  </div>
-
-  <!-- Footer -->
-  <footer class="text-center text-sm text-white/50 py-8">
-    © {{ details.name if details }} | Built with Flask and Tailwind CSS
-  </footer>
-
+    </header>
+    
+    <main class="container">
+        <section class="card" id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Arshbir Singh, a passionate Python developer and creative photographer based in Chandigarh. I love solving complex problems through code and capturing beautiful moments through my lens.</p>
+            
+            <p>Currently, I'm expanding my expertise in Python programming while exploring the exciting world of IoT and web development. My journey in technology is driven by curiosity and the desire to create meaningful, innovative solutions.</p>
+            
+            <h3 style="margin-top: 30px; color: var(--primary-color); font-weight: 600; font-size: 1.4rem;">My Interests</h3>
+            <div class="interests">
+                <span class="interest-item">Python Coding</span>
+                <span class="interest-item">Photography</span>
+                <span class="interest-item">IoT Projects</span>
+                <span class="interest-item">Web Development</span>
+                <span class="interest-item">UI/UX Design</span>
+                <span class="interest-item">Emerging Tech</span>
+            </div>
+        </section>
+        
+        <section class="card" id="projects">
+            <h2>What I'm Doing</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🐍</div>
+                    <div class="project-info">
+                        <div class="project-title">Python Development</div>
+                        <div class="project-desc">Building applications and scripts using Python, focusing on clean code and efficient solutions.</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🌐</div>
+                    <div class="project-info">
+                        <div class="project-title">Web Development</div>
+                        <div class="project-desc">Creating responsive, user-friendly websites with modern frameworks and best practices.</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">📸</div>
+                    <div class="project-info">
+                        <div class="project-title">Photography</div>
+                        <div class="project-desc">Capturing moments and telling visual stories through landscape and portrait photography.</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🔌</div>
+                    <div class="project-info">
+                        <div class="project-title">IoT Projects</div>
+                        <div class="project-desc">Developing smart devices and systems that connect the physical and digital worlds.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="card" id="skills">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Python</div>
+                        <div class="skill-bar"><div class="skill-level" data-width="85%" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">JavaScript</div>
+                        <div class="skill-bar"><div class="skill-level" data-width="70%" style="width: 70%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">HTML/CSS</div>
+                        <div class="skill-bar"><div class="skill-level" data-width="90%" style="width: 90%;"></div></div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Frontend</div>
+                        <div class="skill-bar"><div class="skill-level" data-width="80%" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Backend</div>
+                        <div class="skill-bar"><div class="skill-level" data-width="75%" style="width: 75%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">UI/UX Design</div>
+                        <div class="skill-bar"><div class="skill-level" data-width="70%" style="width: 70%;"></div></div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Photography</div>
+                        <div class="skill-bar"><div class="skill-level" data-width="90%" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">IoT</div>
+                        <div class="skill-bar"><div class="skill-level" data-width="65%" style="width: 65%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Problem Solving</div>
+                        <div class="skill-bar"><div class="skill-level" data-width="85%" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="card" id="collaboration">
+            <h2>Collaboration Interests</h2>
+            <p>I'm actively looking to collaborate on interesting projects, particularly in these areas:</p>
+            <ul style="margin-top: 25px; margin-left: 30px; line-height: 2.2; font-size: 1.05rem;">
+                <li>IoT projects with Python integration</li>
+                <li>Web development and design initiatives</li>
+                <li>Creative coding projects</li>
+                <li>Photography-related tech solutions</li>
+                <li>Open source contributions</li>
+            </ul>
+            <p style="margin-top: 25px; font-style: italic; background: rgba(108, 99, 255, 0.05); padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent-color);">
+                If you have an exciting project that aligns with my skills and interests, I'd love to hear about it!
+            </p>
+        </section>
+        
+        <section class="card" id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <div class="contact-icon">✉</div>
+                    <div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:singharshbir76@gmail.com">singharshbir76@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">⎋</div>
+                    <div>
+                        <h3>GitHub</h3>
+                        <p><a href="https://github.com/imarshbir" target="_blank">github.com/imarshbir</a></p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">Ⓛ</div>
+                    <div>
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://linkedin.com/in/imarshbir" target="_blank">linkedin.com/in/imarshbir</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Arshbir Singh. All rights reserved.</p>
+            <p class="copyright">Built with passion from Chandigarh, India</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Custom Cursor
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        
+        window.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = `${e.clientX}px`;
+            cursorDot.style.top = `${e.clientY}px`;
+            
+            cursorOutline.animate({
+                left: `${e.clientX}px`,
+                top: `${e.clientY}px`
+            }, { duration: 300, fill: 'forwards' });
+        });
+        
+        // Hover effect for links
+        const hoverElements = document.querySelectorAll('a, button, .interest-item, .project-card, .contact-card');
+        
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursorDot.style.width = '0px';
+                cursorDot.style.height = '0px';
+                cursorOutline.style.width = '60px';
+                cursorOutline.style.height = '60px';
+                cursorOutline.style.borderColor = 'var(--accent-color)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursorDot.style.width = '8px';
+                cursorDot.style.height = '8px';
+                cursorOutline.style.width = '40px';
+                cursorOutline.style.height = '40px';
+                cursorOutline.style.borderColor = 'var(--primary-color)';
+            });
+        });
+        
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+            
+            // Back to Top Button
+            const backToTopBtn = document.querySelector('.back-to-top');
+            if (winScroll > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+            
+            // Section Indicator
+            const sections = document.querySelectorAll('.card');
+            const indicatorDots = document.querySelectorAll('.indicator-dot');
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    indicatorDots.forEach(dot => dot.classList.remove('active'));
+                    indicatorDots[index].classList.add('active');
+                }
+            });
+        });
+        
+        // Back to Top Button
+        document.querySelector('.back-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Section Indicator Click
+        document.querySelectorAll('.indicator-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                const sectionId = dot.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Animate skill bars on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-level');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width;
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+        
+        // Add subtle animation to cards on scroll
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            cardObserver.observe(card);
+        });
+    </script>
 </body>
 </html>
